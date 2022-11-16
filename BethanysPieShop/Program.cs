@@ -25,6 +25,6 @@ app.UseStaticFiles();
 
 app.MapDefaultControllerRoute();
 
-//DBInitializer.Seed(app);
+DbInitializer.Seed(app);
 
 app.Run();
