@@ -11,7 +11,7 @@ builder.Services.AddScoped<IPieRepository, PieRepository>();
 builder.Services.AddDbContext<BethanysPieShopDbContext>(options =>
 {
     options.UseSqlServer(
-        builder.Configuration["ConnectionString:BethanysPieShopDbContextConnection"]);
+        builder.Configuration["ConnectionStrings:BethanysPieShopDbContextConnection"]);
 });
 
 var app = builder.Build();
