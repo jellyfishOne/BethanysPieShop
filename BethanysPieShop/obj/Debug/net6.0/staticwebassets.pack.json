@@ -1,32 +1,32 @@
 {
   "Files": [
     {
-      "Id": "C:\\Users\\jrenteriacamino\\source\\repos\\BethanysPieShop\\BethanysPieShop\\wwwroot\\CSS\\Images\\bethanys-pie-shop-logo_horiz-white.png",
-      "PackagePath": "staticwebassets\\CSS\\Images\\bethanys-pie-shop-logo_horiz-white.png"
-    },
-    {
-      "Id": "C:\\Users\\jrenteriacamino\\source\\repos\\BethanysPieShop\\BethanysPieShop\\wwwroot\\CSS\\Images\\bethanys-pie-shop-logomark.png",
-      "PackagePath": "staticwebassets\\CSS\\Images\\bethanys-pie-shop-logomark.png"
-    },
-    {
-      "Id": "C:\\Users\\jrenteriacamino\\source\\repos\\BethanysPieShop\\BethanysPieShop\\wwwroot\\CSS\\Images\\carousel1.jpg",
-      "PackagePath": "staticwebassets\\CSS\\Images\\carousel1.jpg"
-    },
-    {
-      "Id": "C:\\Users\\jrenteriacamino\\source\\repos\\BethanysPieShop\\BethanysPieShop\\wwwroot\\CSS\\Images\\carousel2.jpg",
-      "PackagePath": "staticwebassets\\CSS\\Images\\carousel2.jpg"
-    },
-    {
-      "Id": "C:\\Users\\jrenteriacamino\\source\\repos\\BethanysPieShop\\BethanysPieShop\\wwwroot\\CSS\\Images\\carousel3.jpg",
-      "PackagePath": "staticwebassets\\CSS\\Images\\carousel3.jpg"
-    },
-    {
-      "Id": "C:\\Users\\jrenteriacamino\\source\\repos\\BethanysPieShop\\BethanysPieShop\\wwwroot\\CSS\\Images\\contact\\contact.jpg",
-      "PackagePath": "staticwebassets\\CSS\\Images\\contact\\contact.jpg"
-    },
-    {
       "Id": "C:\\Users\\jrenteriacamino\\source\\repos\\BethanysPieShop\\BethanysPieShop\\wwwroot\\CSS\\site.css",
       "PackagePath": "staticwebassets\\CSS\\site.css"
+    },
+    {
+      "Id": "C:\\Users\\jrenteriacamino\\source\\repos\\BethanysPieShop\\BethanysPieShop\\wwwroot\\Images\\bethanys-pie-shop-logo_horiz-white.png",
+      "PackagePath": "staticwebassets\\Images\\bethanys-pie-shop-logo_horiz-white.png"
+    },
+    {
+      "Id": "C:\\Users\\jrenteriacamino\\source\\repos\\BethanysPieShop\\BethanysPieShop\\wwwroot\\Images\\bethanys-pie-shop-logomark.png",
+      "PackagePath": "staticwebassets\\Images\\bethanys-pie-shop-logomark.png"
+    },
+    {
+      "Id": "C:\\Users\\jrenteriacamino\\source\\repos\\BethanysPieShop\\BethanysPieShop\\wwwroot\\Images\\carousel1.jpg",
+      "PackagePath": "staticwebassets\\Images\\carousel1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\jrenteriacamino\\source\\repos\\BethanysPieShop\\BethanysPieShop\\wwwroot\\Images\\carousel2.jpg",
+      "PackagePath": "staticwebassets\\Images\\carousel2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\jrenteriacamino\\source\\repos\\BethanysPieShop\\BethanysPieShop\\wwwroot\\Images\\carousel3.jpg",
+      "PackagePath": "staticwebassets\\Images\\carousel3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\jrenteriacamino\\source\\repos\\BethanysPieShop\\BethanysPieShop\\wwwroot\\Images\\contact\\contact.jpg",
+      "PackagePath": "staticwebassets\\Images\\contact\\contact.jpg"
     },
     {
       "Id": "C:\\Users\\jrenteriacamino\\source\\repos\\BethanysPieShop\\BethanysPieShop\\wwwroot\\lib\\bootstrap\\css\\bootstrap-grid.css",
