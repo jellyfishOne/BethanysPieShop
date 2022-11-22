@@ -26,9 +26,8 @@ namespace BethanysPieShop.Models
         }
         public void AddtoCart(Pie pie)
         {
-            var shoppingCartItem =
-            _bethanysPieShopDbContext.ShoppingCartItems.SingleOrDefault(
-            s => s.Pie.PieId == pie.PieId && s.ShoppingCartId == ShoppingCartId);
+            var shoppingCartItem =_bethanysPieShopDbContext.ShoppingCartItems.SingleOrDefault(
+                        s => s.Pie.PieId == pie.PieId && s.ShoppingCartId == ShoppingCartId);
 
             if (shoppingCartItem == null)
             {
@@ -45,7 +44,7 @@ namespace BethanysPieShop.Models
             {
                 shoppingCartItem.Amount++;
             }
-            _bethanysPieShopDbContext.SaveChanges();
+            _bethanysPieShopDbContext.SaveChanges(); ;
         }
 
         public void ClearCart()
