@@ -8,11 +8,22 @@ namespace BethanysPieShop.Controllers
     {
         private readonly IPieRepository _pieRepository;
         private readonly ICategoryRepository _categoryRepository;
+
         public PieController(IPieRepository pieRepository, ICategoryRepository categoryRepository)
         {
             _pieRepository = pieRepository;
             _categoryRepository = categoryRepository;
         }
+
+        //public IActionResult List()
+        //{
+        //    //ViewBag.CurrentCategory = "Cheese cakes";
+
+        //    //return View(_pieRepository.AllPies);
+
+        //    PieListViewModel piesListViewModel = new PieListViewModel(_pieRepository.AllPies, "Cheese cakes");
+        //    return View(piesListViewModel);
+        //}
 
         public ViewResult List(string category)
         {
@@ -38,11 +49,9 @@ namespace BethanysPieShop.Controllers
         {
             var pie = _pieRepository.GetPieById(id);
             if (pie == null)
-            {
                 return NotFound();
-            }
+
             return View(pie);
         }
-
     }
 }

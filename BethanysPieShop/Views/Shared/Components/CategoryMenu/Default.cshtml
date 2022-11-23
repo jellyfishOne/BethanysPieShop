@@ -13,13 +13,13 @@
     <ul class="dropdown-menu" aria-labelledby="nav-dropdown">
         @foreach (var category in Model)
         {
-                <li>
-                    <a asp-controller="Pie" asp-action="List"
-                   asp-route-category="@category.CategoryName"
-                   class="dropdown-item">
+            <li>
+                <a asp-controller="Pie" asp-action="List"
+               asp-route-category="@category.CategoryName"
+               class="dropdown-item">
                     @category.CategoryName
-                    </a>
-                </li>
+                </a>
+            </li>
         }
         <li>
             <a asp-controller="Pie" asp-action="List" asp-route-Category="" class="dropdown-item">All pies</a>

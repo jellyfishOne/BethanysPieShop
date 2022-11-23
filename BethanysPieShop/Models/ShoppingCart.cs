@@ -5,13 +5,16 @@ namespace BethanysPieShop.Models
     public class ShoppingCart : IShoppingCart
     {
         private readonly BethanysPieShopDbContext _bethanysPieShopDbContext;
+
         public string? ShoppingCartId { get; set; }
-        public List<ShoppingCartItem> ShoppingCartItems { get; set; } = default;
+
+        public List<ShoppingCartItem> ShoppingCartItems { get; set; } = default!;
 
         private ShoppingCart(BethanysPieShopDbContext bethanysPieShopDbContext)
         {
             _bethanysPieShopDbContext = bethanysPieShopDbContext;
         }
+
         public static ShoppingCart GetCart(IServiceProvider services)
         {
             ISession? session = services.GetRequiredService<IHttpContextAccessor>()?.HttpContext?.Session;
@@ -24,9 +27,11 @@ namespace BethanysPieShop.Models
 
             return new ShoppingCart(context) { ShoppingCartId = cartId };
         }
-        public void AddtoCart(Pie pie)
+
+        public void AddToCart(Pie pie)
         {
-            var shoppingCartItem =_bethanysPieShopDbContext.ShoppingCartItems.SingleOrDefault(
+            var shoppingCartItem =
+                    _bethanysPieShopDbContext.ShoppingCartItems.SingleOrDefault(
                         s => s.Pie.PieId == pie.PieId && s.ShoppingCartId == ShoppingCartId);
 
             if (shoppingCartItem == null)
@@ -44,40 +49,14 @@ namespace BethanysPieShop.Models
             {
                 shoppingCartItem.Amount++;
             }
-            _bethanysPieShopDbContext.SaveChanges(); ;
-        }
-
-        public void ClearCart()
-        {
-            var cartItems = _bethanysPieShopDbContext
-                    .ShoppingCartItems
-                    .Where(cart => cart.ShoppingCartId == ShoppingCartId);
-
-            _bethanysPieShopDbContext.ShoppingCartItems.RemoveRange(cartItems);
-
             _bethanysPieShopDbContext.SaveChanges();
-        }
-
-        public List<ShoppingCartItem> GetShoppingCartItems()
-        {
-            return ShoppingCartItems ??=
-                    _bethanysPieShopDbContext.ShoppingCartItems.Where(c => c.ShoppingCartId == ShoppingCartId)
-                        .Include(s => s.Pie)
-                        .ToList();
-        }
-
-        public decimal GetShoppingCartTotal()
-        {
-            var total = _bethanysPieShopDbContext.ShoppingCartItems.Where(c => c.ShoppingCartId == ShoppingCartId)
-                        .Select(c => c.Pie.Price * c.Amount).Sum();
-            return total;
         }
 
         public int RemoveFromCart(Pie pie)
         {
             var shoppingCartItem =
-         _bethanysPieShopDbContext.ShoppingCartItems.SingleOrDefault(
-             s => s.Pie.PieId == pie.PieId && s.ShoppingCartId == ShoppingCartId);
+                    _bethanysPieShopDbContext.ShoppingCartItems.SingleOrDefault(
+                        s => s.Pie.PieId == pie.PieId && s.ShoppingCartId == ShoppingCartId);
 
             var localAmount = 0;
 
@@ -97,6 +76,32 @@ namespace BethanysPieShop.Models
             _bethanysPieShopDbContext.SaveChanges();
 
             return localAmount;
+        }
+
+        public List<ShoppingCartItem> GetShoppingCartItems()
+        {
+            return ShoppingCartItems ??=
+                       _bethanysPieShopDbContext.ShoppingCartItems.Where(c => c.ShoppingCartId == ShoppingCartId)
+                           .Include(s => s.Pie)
+                           .ToList();
+        }
+
+        public void ClearCart()
+        {
+            var cartItems = _bethanysPieShopDbContext
+                .ShoppingCartItems
+                .Where(cart => cart.ShoppingCartId == ShoppingCartId);
+
+            _bethanysPieShopDbContext.ShoppingCartItems.RemoveRange(cartItems);
+
+            _bethanysPieShopDbContext.SaveChanges();
+        }
+
+        public decimal GetShoppingCartTotal()
+        {
+            var total = _bethanysPieShopDbContext.ShoppingCartItems.Where(c => c.ShoppingCartId == ShoppingCartId)
+                .Select(c => c.Pie.Price * c.Amount).Sum();
+            return total;
         }
     }
 }
