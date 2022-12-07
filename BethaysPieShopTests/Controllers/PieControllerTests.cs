@@ -29,5 +29,23 @@ namespace BethaysPieShopTests.Controllers
             var pieListViewModel = Assert.IsAssignableFrom<PieListViewModel>(viewResult.ViewData.Model);
             Assert.Equal(10, pieListViewModel.Pies.Count());
         }
+
+        [Fact]
+        public void Details_GetPieById_ReturnsPie()
+        {
+            //arrange
+            var mockCategoryRepository = RepositoryMocks.GetCategoryRepository();
+            var mockPieRepository = RepositoryMocks.GetPieRepository();
+
+            var pieController = new PieController(mockPieRepository.Object, mockCategoryRepository.Object);
+
+            //act
+            var result = pieController.Details(1);
+
+            //assert
+            var viewResult = Assert.IsType<ViewResult>(result);
+            var pieView = Assert.IsAssignableFrom<PieListViewModel> (viewResult.ViewData.Model);
+            Assert.IsType<NotFoundObjectResult>(pieView);
+        }
     }
 }
