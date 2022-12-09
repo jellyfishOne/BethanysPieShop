@@ -33,6 +33,7 @@ namespace BethaysPieShopTests.Controllers
         [Fact]
         public void Details_GetPieById_ReturnsPie()
         {
+            //TODO 
             //arrange
             var mockCategoryRepository = RepositoryMocks.GetCategoryRepository();
             var mockPieRepository = RepositoryMocks.GetPieRepository();
@@ -45,7 +46,7 @@ namespace BethaysPieShopTests.Controllers
             //assert
             var viewResult = Assert.IsType<ViewResult>(result);
             var pieView = Assert.IsAssignableFrom<PieListViewModel> (viewResult.ViewData.Model);
-            Assert.IsType<NotFoundObjectResult>(pieView);
+            //Assert.IsType<PieListViewModel>(pieView.Pies.Where);
         }
     }
 }
