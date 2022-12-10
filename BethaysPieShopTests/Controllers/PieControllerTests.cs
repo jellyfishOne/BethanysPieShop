@@ -1,4 +1,5 @@
 ﻿using BethanysPieShop.Controllers;
+using BethanysPieShop.Models;
 using BethanysPieShop.ViewModels;
 using BethanysPieShopTests.Mocks;
 using Microsoft.AspNetCore.Mvc;
@@ -41,12 +42,10 @@ namespace BethaysPieShopTests.Controllers
             var pieController = new PieController(mockPieRepository.Object, mockCategoryRepository.Object);
 
             //act
-            var result = pieController.Details(1);
+            var result = pieController.Details(1) as ViewResult;
 
             //assert
-            var viewResult = Assert.IsType<ViewResult>(result);
-            var pieView = Assert.IsAssignableFrom<PieListViewModel> (viewResult.ViewData.Model);
-            //Assert.IsType<PieListViewModel>(pieView.Pies.Where);
+            Assert.IsType<Pie>(result.ViewData.Model);
         }
     }
 }

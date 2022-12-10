@@ -13,7 +13,7 @@ namespace BethanysPieShop.Controllers
             _pieRepository = pieRepository;
         }
 
-        public IActionResult Index()
+        public ViewResult Index()
         {
             var pieOfTheWeek = _pieRepository.PieOfTheWeek;
 

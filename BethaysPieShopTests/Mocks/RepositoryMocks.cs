@@ -16,6 +16,7 @@ namespace BethanysPieShopTests.Mocks
             {
                 new Pie
                 {
+                    PieId= 1,
                     Name = "Apple Pie",
                     Price = 12.95M,
                     ShortDescription = "Our famous apple pies!",
